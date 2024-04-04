@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    font-family: monospace;
 }
 
 body {
@@ -12,13 +13,26 @@ body {
     overflow: hidden;
 }
 
+.info {
+    position: absolute;
+    width: 30vw;
+    height: 30vh;
+    background: rgba(100, 100, 100, 0.9);
+    z-index: 1;
+    top: 2rem;
+    left: 2rem;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 2em;
+}
+
 .boxContainer {
     width: 600px;
     color: white;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     perspective: 1000px;
     perspective-origin: top left;
-    animation: perspectiveShift 10s infinite ease-out;
     cursor: grab;
 }
 
@@ -26,10 +40,17 @@ body {
     text-align: center;
     position: relative;
     padding: 5em;
-    animation: spin 10s infinite ease-out;
     transform-style: preserve-3d;
     height: 600px;
     transform-origin: center center -300px;
+}
+
+.perspective-shift {
+    animation: perspectiveShift 5s 1 ease-out;
+}
+
+.spin {
+    animation: spin 5s 1 ease-out;
 }
 
 .front,
@@ -46,52 +67,47 @@ body {
     right: 0;
     transform-style: preserve-3d;
     backface-visibility: hidden;
-}
 
-.front {
-    background: red;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: lightblue;
+    border: 3px solid grey;
 }
 
 .back {
-    background: blue;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transform: translateZ(-600px) rotateY(.5turn);
+    transform: translateZ(-600px) rotateY(0.5turn);
 }
 
 .left {
-    background: green;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transform: rotateY(-.25turn) translateX(-300px) translateZ(300px);
+    transform: rotateY(-0.25turn) translateX(-300px) translateZ(300px);
 }
 
 .right {
-    background: yellow;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transform: rotateY(.25turn) translateX(300px) translateZ(300px);
+    transform: rotateY(0.25turn) translateX(300px) translateZ(300px);
 }
 
 .top {
-    background-color: orange;
     color: black;
     line-height: 300px;
     font-size: 2em;
-    transform: rotateX(.25turn) translateZ(300px) translateY(-300px);
+    transform: rotateX(0.25turn) translateZ(300px) translateY(-300px);
 }
 
 .bottom {
-    background: indigo;
     color: black;
     background-size: cover;
     background-repeat: no-repeat;
-    transform: rotateX(.75turn) translateZ(300px) translateY(300px);
+    transform: rotateX(0.75turn) translateZ(300px) translateY(300px);
 }
 
-/* @keyframes spin {
+.spin-button {
+    font-size: larger;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    background: white;
+}
+
+@keyframes spin {
     0% {
         transform: rotateX(-20deg) rotateY(20deg) translateY(0px);
     }
@@ -120,7 +136,7 @@ body {
         perspective: 1000px;
         perspective-origin: top left;
     }
-} */
+}
 
 @media screen and (max-width: 800px) {
     .boxContainer {
