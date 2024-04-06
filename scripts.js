@@ -6,13 +6,15 @@ const boxContainer = document.getElementById("box-container");
 initialBoxAnimation();
 
 function initialBoxAnimation() {
-    box.style.transform = "rotateX(0deg) rotateY(0deg)";
-    box.style.transition = "transform 2s";
-    box.style.transform = "rotateX(-20deg) rotateY(20deg) translateY(0px)";
-
     setTimeout(() => {
-        box.style.transition = "";
-    }, 2000);
+        box.style.transform = "rotateX(0deg) rotateY(0deg)";
+        box.style.transition = "transform 2s";
+        box.style.transform = "rotateX(-20deg) rotateY(20deg) translateY(0px)";
+
+        setTimeout(() => {
+            box.style.transition = "";
+        }, 2000);
+    }, 1000);
 }
 
 function dragStart(ev) {

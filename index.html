@@ -10,23 +10,74 @@
 </head>
 
 <body>
-    <div class="info">
-        <h1>Hello, cruel world!</h1>
-    </div>
     <div class="boxContainer" id="box-container">
         <div class="box" draggable="true" ondragstart="dragStart(event)" ondrag="drag(event)" id="box">
             <div class="front">
-                <button onclick="spin()" class="spin-button">Spin!</button>
+                <h1 class="app-title">Hi there, welcome</h1>
+                <p class="app-details">
+                    This website is written in HTML, CSS and JavaScript and doesn't use any frameworks or 3rd party
+                    code. It's designed to showcase my front end development skills.
+                    Each side of the cube has a link to a different project that I have developed. I hope you enjoy
+                    browsing...
+                    <br>
+                    <br>
+                <p class="center">
+                    <button onclick="spin()" class="spin-button">Spin!</button>
+                </p>
+
+                </p>
             </div>
             <div class="back"></div>
             <div class="left">
-                <h1>Avast, Me Hearties!</h1>
-                <p><a href="https://joshp93.github.io/lobster-pots/">This</a> be a game I made to showcase me love for pyrates (and also me ability to write complex logic)! It be written in Angular framework</p>
+                <h1 class="app-title">
+                    <a class="app-title-a" href="https://joshp93.github.io/fruity-spotify/" target="_blank">
+                        <img class="new-window" src="assets/open-in-new-tab.svg" alt="Open in new tab">
+                        Fruity Spotify
+                    </a>
+                </h1>
+                <p class="app-details">
+                    I wrote an Angular app which integrates with Spotify's API to get listing trends
+                    from the users account.
+                    <br>
+                    This is written in Angular, and as well as integrating with the API, this app uses the JavaScript
+                    Audio API to
+                    play previews of the tracks.
+                </p>
             </div>
-            <div class="right"></div>
+            <div class="right">
+                <h1 class="app-title">
+                    <img class="lobster" src="assets/lobster.png" alt="Lobster">
+                    <a class="app-title-a" href="https://joshp93.github.io/lobster-pots/" target="_blank">
+                        <img class="new-window" src="assets/open-in-new-tab.svg" alt="Open in new tab">
+                        Avast, Me Hearties!
+                    </a>
+                    <img class="lobster" src="assets/lobster.png" alt="Lobster">
+                </h1>
+                <p class="app-details">
+                    This be a game I made to showcase me love for pyrates (and also me ability to
+                    write complex logic)! It be written in Angular.
+                    <br>
+                    It's based on a game that I played as a kid, where you could run a small business catching and
+                    selling lobsters. I want to extend it one day so that you can buy boats and go out to the deep
+                    sea...
+                </p>
+            </div>
             <div class="top">
+                <h1 class="app-title">
+                    <a class="app-title-a" href="https://joshp93.github.io/whos-keeping-score/" target="_blank">
+                        <img class="new-window" src="assets/open-in-new-tab.svg" alt="Open in new tab">
+                        Who's Keeping Score
+                    </a>
+                </h1>
+                <p class="app-details">
+                    This is not a question anymore... This app is keeping score.
+                    <br>
+                    Written in Angular, this app will help you keep score when playing board games etc. It will randomly
+                    assign an emoji avatar and name to each player
+                </p>
             </div>
             <div class="bottom">
+
             </div>
         </div>
     </div>

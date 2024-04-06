@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
-    font-family: monospace;
 }
 
 body {
@@ -11,6 +12,42 @@ body {
     place-items: center;
     background-color: black;
     overflow: hidden;
+}
+
+.app-title-a {
+    text-decoration: none;
+    background-image: linear-gradient(white, white);
+    background-size: 0% 2em;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+    outline: none;
+    padding: 4px;
+    color: inherit;
+    text-decoration: dashed;
+}
+
+.app-title-a:hover,
+.app-title-a:focus {
+    background-size: 100% 2em;
+}
+
+.app-title {
+    text-align: center;
+}
+
+.new-window {
+    height: 1rem;
+}
+
+.lobster {
+    height: 2rem;
+}
+
+.app-details {
+    font-size: 25px;
+    font-weight: 500;
 }
 
 .info {
@@ -29,7 +66,6 @@ body {
 
 .boxContainer {
     width: 600px;
-    color: white;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     perspective: 1000px;
     perspective-origin: top left;
@@ -37,7 +73,6 @@ body {
 }
 
 .box {
-    text-align: center;
     position: relative;
     padding: 5em;
     transform-style: preserve-3d;
@@ -78,17 +113,24 @@ body {
 
 .left {
     transform: rotateY(-0.25turn) translateX(-300px) translateZ(300px);
+    background-color: #fffacd;
+    background-image: url(https://media.giphy.com/media/245otAim3vNmy59B4d/giphy.gif);
+    background-size: cover;
+    font-family: Quicksand;
 }
 
 .right {
     transform: rotateY(0.25turn) translateX(300px) translateZ(300px);
+    background-color: #ffa07a;
+    font-family: Quicksand;
 }
 
 .top {
-    color: black;
-    line-height: 300px;
-    font-size: 2em;
+    background-color: black;
+    color: white;
     transform: rotateX(0.25turn) translateZ(300px) translateY(-300px);
+    background-image: url(https://media.giphy.com/media/I38qmkMXsMOFKsuer9/giphy.gif);
+    background-size: cover;
 }
 
 .bottom {
@@ -98,13 +140,32 @@ body {
     transform: rotateX(0.75turn) translateZ(300px) translateY(300px);
 }
 
+.center {
+    text-align: center;
+}
+
 .spin-button {
-    font-size: larger;
+    font-size: 2em;
     border-radius: 5px;
     border: none;
     padding: 10px;
     cursor: pointer;
     background: white;
+    width: 100px;
+    transition: transform 1s ease-in-out, background-size 0.2s ease-in-out;
+    background-image: linear-gradient(black, black);
+    background-size: 0% 2em;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    outline: none;
+}
+
+.spin-button:hover,
+.spin-button:focus {
+    transform: rotateZ(360deg);
+    color: white;
+    background-size: 100% 2em;
 }
 
 @keyframes spin {
