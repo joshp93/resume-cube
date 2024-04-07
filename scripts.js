@@ -3,6 +3,9 @@ let animating = false;
 const box = document.getElementById("box");
 const boxContainer = document.getElementById("box-container");
 
+box.addEventListener("touchstart", dragStart);
+box.addEventListener("touchmove", drag);
+
 initialBoxAnimation();
 
 function initialBoxAnimation() {
@@ -18,11 +21,13 @@ function initialBoxAnimation() {
 }
 
 function dragStart(ev) {
-    let img = document.createElement("img");
-    img.src = "assets/nope.png";
-    ev.dataTransfer.setDragImage(img, 0, 0);
     if (animating) {
         return;
+    }
+    if (ev.type !== "touchstart") {
+        let img = document.createElement("img");
+        img.src = "assets/nope.png";
+        ev.dataTransfer.setDragImage(img, 0, 0);
     }
     initialState = getBoxState(ev);
 }
@@ -32,7 +37,8 @@ function drag(ev) {
         return;
     }
     ev.preventDefault();
-    updateBoxRotation(ev.pageX, ev.pageY);
+    const pageXAndY = getPageXAndY(ev);
+    updateBoxRotation(pageXAndY.pageX, pageXAndY.pageY);
 }
 
 function updateBoxRotation(x, y) {
@@ -43,12 +49,13 @@ function updateBoxRotation(x, y) {
 
 function getBoxState(ev) {
     const transform = box.style.transform;
+    const pageXAndY = getPageXAndY(ev);
     if (!transform) {
         return {
             x: 0,
             y: 0,
-            pageX: ev.pageX,
-            pageY: ev.pageY
+            pageX: pageXAndY.pageX,
+            pageY: pageXAndY.pageY
         };
     }
     const x = transform.split(" ")[0]
@@ -63,8 +70,8 @@ function getBoxState(ev) {
     return {
         x: parseFloat(x),
         y: parseFloat(y),
-        pageX: ev.pageX,
-        pageY: ev.pageY
+        pageX: pageXAndY.pageX,
+        pageY: pageXAndY.pageY
     };
 }
 
@@ -83,13 +90,26 @@ function spin() {
 }
 
 function makeItSpin() {
-    box.style.transition = "";
-
+    box.style.transition = "";  
     box.classList.add("spin");
     boxContainer.classList.add("perspective-shift");
     setTimeout(() => {
+        document.activeElement.blur();
         box.classList.remove("spin");
         boxContainer.classList.remove("perspective-shift");
         animating = false;
     }, 5000);
+}
+
+function getPageXAndY(ev) {
+    let pageX = ev.pageX || 0;
+    let pageY = ev.pageY || 0;
+    if (ev.touches && ev.touches.length > 0) {
+        pageX = ev.touches[0].pageX;
+        pageY = ev.touches[0].pageY;
+    }
+    return {
+        pageX,
+        pageY
+    }
 }

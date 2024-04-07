@@ -109,6 +109,10 @@ body {
     border: 3px solid grey;
 }
 
+.front {
+    background-image: linear-gradient(whitesmoke, rgb(148, 162, 209));
+}
+
 .back {
     transform: translateZ(-600px) rotateY(0.5turn);
     background-color: #808080;
