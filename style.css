@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap');
 
 * {
     box-sizing: border-box;
@@ -66,7 +68,7 @@ body {
 
 .boxContainer {
     width: 600px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-family: Quicksand;
     perspective: 1000px;
     perspective-origin: top left;
     cursor: grab;
@@ -103,12 +105,17 @@ body {
     transform-style: preserve-3d;
     backface-visibility: hidden;
 
-    background-color: lightblue;
+    background-color: whitesmoke;
     border: 3px solid grey;
 }
 
 .back {
     transform: translateZ(-600px) rotateY(0.5turn);
+    background-color: #808080;
+}
+
+.back .app-title-a {
+    background-image: linear-gradient(#c2185b, #c2185b);
 }
 
 .left {
@@ -116,13 +123,11 @@ body {
     background-color: #fffacd;
     background-image: url(https://media.giphy.com/media/245otAim3vNmy59B4d/giphy.gif);
     background-size: cover;
-    font-family: Quicksand;
 }
 
 .right {
     transform: rotateY(0.25turn) translateX(300px) translateZ(300px);
     background-color: #ffa07a;
-    font-family: Quicksand;
 }
 
 .top {
@@ -130,14 +135,34 @@ body {
     color: white;
     transform: rotateX(0.25turn) translateZ(300px) translateY(-300px);
     background-image: url(https://media.giphy.com/media/I38qmkMXsMOFKsuer9/giphy.gif);
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: 300px;
+}
+
+.top .app-title-a {
+    background-image: linear-gradient(orange, orange);
+}
+
+.top .app-title {
+    font-family: "Major Mono Display";
+}
+
+.top .app-details {
+    font-family: "Roboto Mono";
 }
 
 .bottom {
-    color: black;
-    background-size: cover;
+    background-image: url("assets/csn-logo.jpg");
     background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: 200px;
+    background-color: white;
     transform: rotateX(0.75turn) translateZ(300px) translateY(300px);
+}
+
+.bottom .app-title-a {
+    background-image: linear-gradient(#7178e3, #7178e3);
 }
 
 .center {
@@ -163,7 +188,7 @@ body {
 
 .spin-button:hover,
 .spin-button:focus {
-    transform: rotateZ(360deg);
+    transform: rotateX(360deg);
     color: white;
     background-size: 100% 2em;
 }
