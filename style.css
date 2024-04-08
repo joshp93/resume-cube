@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap");
 
 * {
     box-sizing: border-box;
@@ -181,17 +181,22 @@ body {
     cursor: pointer;
     background: white;
     width: 100px;
-    transition: transform 1s ease-in-out, background-size 0.2s ease-in-out;
+    outline: none;
+}
+
+.spin-button-content {
+    transition:
+        transform 1s ease-in-out,
+        background-size 0.2s ease-in-out;
     background-image: linear-gradient(black, black);
     background-size: 0% 2em;
     background-position-y: 100%;
     background-position-x: 0%;
     background-repeat: no-repeat;
-    outline: none;
 }
 
-.spin-button:hover,
-.spin-button:focus {
+.spin-button-content:hover,
+.spin-button-content:focus {
     transform: rotateX(360deg);
     color: white;
     background-size: 100% 2em;
@@ -228,14 +233,108 @@ body {
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     .boxContainer {
-        transform: scale3d(0.5, 0.5, 0.5);
+        width: 300px;
+    }
+
+    .box {
+        height: 300px;
+        transform-origin: center center -150px;
+    }
+
+    .back {
+        transform: translateZ(-300px) rotateY(0.5turn);
+    }
+
+    .left {
+        transform: rotateY(-0.25turn) translateX(-150px) translateZ(150px);
+    }
+
+    .right {
+        transform: rotateY(0.25turn) translateX(150px) translateZ(150px);
+    }
+
+    .top {
+        transform: rotateX(0.25turn) translateZ(150px) translateY(-150px);
+        background-position-y: 150px;
+    }
+
+    .bottom {
+        transform: rotateX(0.75turn) translateZ(150px) translateY(150px);
+        background-position-y: 100px;
+    }
+
+    .app-details {
+        font-size: 0.7em;
+        font-weight: 500;
+    }
+
+    .app-title {
+        font-size: 1em;
+    }
+
+    .spin-button {
+        font-size: 1em;
+        width: 60px;
+    }
+
+    .lobster {
+        height: 1rem;
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 767px) {
     .boxContainer {
-        transform: scale3d(0.2, 0.2, 0.2) translateX(-40%);
+        width: 200px;
+    }
+
+    .box {
+        height: 200px;
+        transform-origin: center center -100px;
+    }
+
+    .back {
+        transform: translateZ(-200px) rotateY(0.5turn);
+    }
+
+    .left {
+        transform: rotateY(-0.25turn) translateX(-100px) translateZ(100px);
+    }
+
+    .right {
+        transform: rotateY(0.25turn) translateX(100px) translateZ(100px);
+    }
+
+    .top {
+        transform: rotateX(0.25turn) translateZ(100px) translateY(-100px);
+        background-position-y: 100px;
+    }
+
+    .bottom {
+        transform: rotateX(0.75turn) translateZ(100px) translateY(100px);
+        background-position-y: 70px;
+    }
+
+    .app-details {
+        font-size: 0.4em;
+        font-weight: 500;
+    }
+
+    .app-title {
+        font-size: 0.5em;
+    }
+
+    .spin-button {
+        font-size: 0.5em;
+        width: 40px;
+    }
+
+    .lobster {
+        height: 0.5rem;
+    }
+
+    .new-window {
+        height: 0.5rem;
     }
 }
