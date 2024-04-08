@@ -243,6 +243,15 @@ body {
         transform-origin: center center -150px;
     }
 
+    .front,
+    .back,
+    .left,
+    .right,
+    .top,
+    .bottom {
+        padding: 1em;
+    }
+
     .back {
         transform: translateZ(-300px) rotateY(0.5turn);
     }
@@ -294,6 +303,15 @@ body {
         transform-origin: center center -100px;
     }
 
+    .front,
+    .back,
+    .left,
+    .right,
+    .top,
+    .bottom {
+        padding: 0.5em;
+    }
+
     .back {
         transform: translateZ(-200px) rotateY(0.5turn);
     }
@@ -317,12 +335,12 @@ body {
     }
 
     .app-details {
-        font-size: 0.4em;
+        font-size: 0.5em;
         font-weight: 500;
     }
 
     .app-title {
-        font-size: 0.5em;
+        font-size: 0.6em;
     }
 
     .spin-button {
