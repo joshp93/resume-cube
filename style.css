@@ -106,16 +106,16 @@ body {
     backface-visibility: hidden;
 
     background-color: whitesmoke;
-    border: 3px solid grey;
+    border: 3px solid lightgrey;
 }
 
 .front {
-    background-image: linear-gradient(whitesmoke, rgb(148, 162, 209));
+    background-image: linear-gradient(orange, rgb(233, 106, 2));
 }
 
 .back {
     transform: translateZ(-600px) rotateY(0.5turn);
-    background-color: #808080;
+    background: linear-gradient(lightgrey, grey);
 }
 
 .back .app-title-a {
@@ -131,7 +131,7 @@ body {
 
 .right {
     transform: rotateY(0.25turn) translateX(300px) translateZ(300px);
-    background-color: #ffa07a;
+    background: linear-gradient(#ffa07a, #c23700);
 }
 
 .top {
@@ -163,10 +163,18 @@ body {
     background-position-y: 200px;
     background-color: white;
     transform: rotateX(0.75turn) translateZ(300px) translateY(300px);
+    padding: 0;
 }
 
 .bottom .app-title-a {
     background-image: linear-gradient(#7178e3, #7178e3);
+}
+
+.bottom .contrast {
+    width: 100;
+    height: 100%;
+    padding: 2em;
+    background: rgb(255, 255, 255, 0.5);
 }
 
 .center {
@@ -248,7 +256,7 @@ body {
     .left,
     .right,
     .top,
-    .bottom {
+    .contrast {
         padding: 1em;
     }
 
@@ -308,7 +316,7 @@ body {
     .left,
     .right,
     .top,
-    .bottom {
+    .contrast {
         padding: 0.5em;
     }
 
