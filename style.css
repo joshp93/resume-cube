@@ -203,8 +203,8 @@ body {
     background-repeat: no-repeat;
 }
 
-.spin-button-content:hover,
-.spin-button-content:focus {
+.spin-button:hover .spin-button-content,
+.spin-button:focus .spin-button-content {
     transform: rotateX(360deg);
     color: white;
     background-size: 100% 2em;
