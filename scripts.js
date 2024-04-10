@@ -3,12 +3,40 @@ let animating = false;
 const box = document.getElementById("box");
 const boxContainer = document.getElementById("box-container");
 
+const sideTransformations = {
+    front: {
+        x: 0,
+        y: 0
+    },
+    back: {
+        x: 0,
+        y: 180
+    },
+    left: {
+        x: 0,
+        y: 90
+    },
+    right: {
+        x: 0,
+        y: -90
+    },
+    top: {
+        x: -90,
+        y: 0
+    },
+    bottom: {
+        x: 90,
+        y: 0
+    }
+};
+
 box.addEventListener("touchstart", dragStart);
 box.addEventListener("touchmove", drag);
 
 initialBoxAnimation();
 
 function initialBoxAnimation() {
+    animating = true;
     setTimeout(() => {
         box.style.transform = "rotateX(0deg) rotateY(0deg)";
         box.style.transition = "transform 2s";
@@ -16,18 +44,19 @@ function initialBoxAnimation() {
 
         setTimeout(() => {
             box.style.transition = "";
+            animating = false;
         }, 2000);
     }, 1000);
 }
 
 function dragStart(ev) {
-    if (animating) {
-        return;
-    }
     if (ev.type !== "touchstart") {
         let img = document.createElement("img");
         img.src = "assets/nope.png";
         ev.dataTransfer.setDragImage(img, 0, 0);
+    }
+    if (animating) {
+        return;
     }
     initialState = getBoxState(ev);
 }
@@ -90,7 +119,7 @@ function spin() {
 }
 
 function makeItSpin() {
-    box.style.transition = "";  
+    box.style.transition = "";
     box.classList.add("spin");
     boxContainer.classList.add("perspective-shift");
     setTimeout(() => {
@@ -112,4 +141,39 @@ function getPageXAndY(ev) {
         pageX,
         pageY
     }
+}
+
+function rotateIntoView(ev) {
+    if (animating) {
+        return;
+    }
+    animating = true;
+    const side = findParentSide(ev.target);
+    const sideName = side.classList[0];
+    let transform = box.style.transform;
+    box.style.transition = "transform 0.5s";
+
+    transform = transform.replace(/rotateX\([\-0-9\.]+?deg\)/, `rotateX(${sideTransformations[sideName].x}deg)`);
+    transform = transform.replace(/rotateY\([\-0-9\.]+?deg\)/, `rotateY(${sideTransformations[sideName].y}deg)`);
+    box.style.transform = transform;
+    setTimeout(() => {
+        box.style.transition = ""
+        animating = false;
+    }, 500);
+}
+
+function findParentSide(target) {
+    const sides = ["front", "back", "left", "right", "top", "bottom"];
+    let result;
+    while (!result) {
+        sides.forEach(side => {
+            if (target.classList.contains(side)) {
+                result = target;
+            }
+        });
+        if (!result) {
+            target = target.parentElement;
+        }
+    }
+    return result;
 }

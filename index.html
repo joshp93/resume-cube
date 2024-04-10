@@ -7,7 +7,7 @@
     <meta name="viewport" content="initial-scale=1.0">
     <title>Resume Cube</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/jfif" href="/assets/cube.jfif">
+    <link rel="icon" type="image/png" href="/assets/cube.png">
 </head>
 
 <body>
@@ -16,7 +16,8 @@
             <div class="front">
                 <h1 class="app-title">Hi there, welcome</h1>
                 <p class="app-details">
-                    Click and drag the cube to look around. To zoom in on mobile you can pinch and drag the black background.
+                    On desktop, click and drag the cube to look around, you can also use tab. On mobile, you can pinch
+                    and drag the black background to zoom.
                     <br>
                     <br>
                     This website is written in HTML, CSS and JavaScript and doesn't use any frameworks or 3rd party
@@ -26,7 +27,7 @@
                     <br>
                     <br>
                 <p class="center">
-                    <button onclick="spin()" class="spin-button">
+                    <button onclick="spin()" class="spin-button" onfocus="rotateIntoView(event)">
                         <div class="spin-button-content">
                             Spin!
                         </div>
@@ -36,7 +37,8 @@
             </div>
             <div class="back">
                 <h1 class="app-title">
-                    <a class="app-title-a" href="https://what-think-ye.web.app/home" target="_blank">
+                    <a class="app-title-a" href="https://what-think-ye.web.app/home" target="_blank"
+                        onfocus="rotateIntoView(event)">
                         <img class="new-window" src="assets/open-in-new-tab.svg" alt="Open in new tab">
                         What Think Ye?
                     </a>
@@ -55,7 +57,8 @@
             </div>
             <div class="left">
                 <h1 class="app-title">
-                    <a class="app-title-a" href="https://joshp93.github.io/fruity-spotify/" target="_blank">
+                    <a class="app-title-a" href="https://joshp93.github.io/fruity-spotify/" target="_blank"
+                        onfocus="rotateIntoView(event)">
                         <img class="new-window" src="assets/open-in-new-tab.svg" alt="Open in new tab">
                         Fruity Spotify
                     </a>
@@ -72,7 +75,8 @@
             <div class="right">
                 <h1 class="app-title">
                     <img class="lobster" src="assets/lobster.png" alt="Lobster">
-                    <a class="app-title-a" href="https://joshp93.github.io/lobster-pots/" target="_blank">
+                    <a class="app-title-a" href="https://joshp93.github.io/lobster-pots/" target="_blank"
+                        onfocus="rotateIntoView(event)">
                         <img class="new-window" src="assets/open-in-new-tab.svg" alt="Open in new tab">
                         Avast, Me Hearties!
                     </a>
@@ -89,7 +93,8 @@
             </div>
             <div class="top">
                 <h1 class="app-title">
-                    <a class="app-title-a" href="https://joshp93.github.io/whos-keeping-score/" target="_blank">
+                    <a class="app-title-a" href="https://joshp93.github.io/whos-keeping-score/" target="_blank"
+                        onfocus="rotateIntoView(event)">
                         <img class="new-window" src="assets/open-in-new-tab-white.svg" alt="Open in new tab">
                         Who's Keeping Score
                     </a>
@@ -105,18 +110,20 @@
             <div class="bottom">
                 <div class="contrast">
                     <h1 class="app-title">
-                        <a class="app-title-a" href="https://csn-second-contacts.firebaseapp.com/login" target="_blank">
+                        <a class="app-title-a" href="https://csn-second-contacts.firebaseapp.com/login" target="_blank"
+                            onfocus="rotateIntoView(event)">
                             <img class="new-window" src="assets/open-in-new-tab.svg" alt="Open in new tab">
                             CSN Second Contacts
                         </a>
                     </h1>
                     <p class="app-details">
-                        I wrote this CRM system on request for CSN, a small charity, because I wanted to support their efforts.
-                        They are now using this system fulltime and it is saving them hundreds of pounds a month. It is a
-                        database of Second Contacts information which can be used for referrals.
+                        I wrote this CRM system on request for CSN, a small charity, because I wanted to support their
+                        efforts. They are now using this system fulltime and it is saving them hundreds of pounds a
+                        month. It is a database of Second Contacts information which can be used for referrals.
                         <br>
-                        The CRM system is written in Angular with Angular Material components. I designed a custom pallete
-                        and colour theme for them based on their logo. It uses Google's Firebase for Authentication and Database storage.
+                        The CRM system is written in Angular with Angular Material components. I designed a custom
+                        pallete and colour theme for them based on their logo. It uses Google's Firebase for
+                        Authentication and Database storage.
                         <br>
                         I can provide a demo of this application on request.
                     </p>
